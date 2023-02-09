@@ -1,1 +1,1 @@
-# comp429-project1
+# comp429-chat-app
