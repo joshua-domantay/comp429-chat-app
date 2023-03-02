@@ -48,29 +48,48 @@ def connect(dest, port):
         print("Connection error", e)
 
 def list_connections():
-    pass
+    #Prints out the list of connection#
+    for conn in connections:
+        print("id: IP address         Port No.")
+        print(conn[0],conn[1],"    ", conn[2])
 
 def terminate(conn_id):
-    pass
+    ##Terminate the connection list based on curr_id##
+    found = False
+
+    for conn in connections:
+        if conn[0] == conn_id:
+            connections.remove(conn)
+            found = True
+            print(f"Connection with id {conn_id} has been terminated.")
+            break
+    if not found:
+        print(f"No connection found with an id {conn_id}.")
 
 def send(conn_id, msg):
     for i in range(len(connections)):
         if(int(connections[i][0]) == conn_id):
             # Send a message
-            client_socket = socket(AF_INET, SOCK_STREAM)
-            client_socket.connect((connections[i][1], connections[i][2]))
-            client_socket.send(msg.encode())
-            client_socket.close()
+            try:
+                client_socket = socket(AF_INET, SOCK_STREAM)
+                client_socket.bind((myip(), port))
+                client_socket.connect((connections[i][1], connections[i][2]))
+                client_socket.send(msg.encode())
+                client_socket.close()
+            except Exception as e:
+                print(e)
             return
     print("Connection id not found")
 
 def setup_server(port):
     server_socket = socket(AF_INET, SOCK_STREAM)
+    print(port)
     server_socket.bind((myip(), port))
     server_socket.listen(1)
     while True:
         conn_socket, addr = server_socket.accept()
         msg = conn_socket.recv(1024).decode()
+        print(conn_socket.getsockname())
         print("Message received from", addr[0])
         print("Sender's Port:", addr[1])
         print("Message:", msg)
@@ -116,19 +135,30 @@ def get_input():
             print(connections)
             # pass    # Disregard
 
+def check_port():
+    test_socket = socket(AF_INET, SOCK_STREAM)
+    result = test_socket.connect_ex((myip(), port))
+    ret_val = False
+    if(result == 0):
+        ret_val = True
+    test_socket.close()
+    return ret_val
+
 def main():
     # Get command line arguments
     arg_len = len(sys.argv)
 
     # If arguments contain port number...
     if((arg_len == 2) and (valid_port(sys.argv[1]))):
+        global port
         port = int(sys.argv[1])
-        try:    # If connection goes through...
-            _thread.start_new_thread(setup_server, (port,))     # Thread for listening
-            get_input()
-        except:     # Else error message for no connection
-            print("Connection error")
-            return
+        if(True):
+            try:    # If connection goes through...
+                _thread.start_new_thread(setup_server, (port,))     # Thread for listening
+                get_input()
+            except:     # Else error message for no connection
+                print("Connection error")
+                return
     else:   # Else error message for lack of port number
         print("Please provide a port number on your arguments")
 
