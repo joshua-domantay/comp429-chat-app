@@ -36,6 +36,11 @@ def myport():
 
 def connect(dest, port):
     try:
+        # Check if connecting to self
+        if((dest == myip()) and (port == myport())):
+            print("Cannot connect to self")
+            return
+
         # Check if already connected to dest and port
         for conn in connections:
             if((conn[1] == dest) and (conn[2] == port)):
@@ -96,6 +101,10 @@ def send(conn_id, msg):
                 print(e)
             return
     print("Connection id not found")
+
+def exit_chat():
+    while(len(connections) > 0):
+        terminate(connections[0][0])    # Terminate first connection
 
 # TODO: When peer connects, establish connection as well
 # TODO: When peer terminates, remove peer from list
@@ -160,6 +169,7 @@ def get_input():
             else:
                 print("Please provide the connection id and the message")
         elif(x[0].lower() == "exit"):
+            exit_chat()
             break
         print()
 
