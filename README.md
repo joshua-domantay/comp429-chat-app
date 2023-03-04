@@ -13,7 +13,7 @@ Programmed by Joshua Anthony Domantay and Ayush Thapaliya.
     - When a peer establishes a connection.
     - When a peer terminates their connection.
 8. Handle input from the user.
-9. Update README.md
+9. Update README.md.
 
 ## Contribution made by Ayush Thapaliya
 1. Display available commands by making `help`.
@@ -31,4 +31,4 @@ Python modules such as `sys`, `_thread`, and `socket` should be included with Py
 1. Open the terminal in the directory where chat.py is stored.
 2. Make sure Python is installed by running `python --version`. The output should be `Python <version_number>`.
 3. Enter `python chat.py <listening_port_number>` in the terminal.
-4. After successfully running the command, use the `help` command to learn more how to use the program
+4. After successfully running the command, use the `help` command to learn more how to use the program.
