@@ -106,8 +106,6 @@ def exit_chat():
     while(len(connections) > 0):
         terminate(connections[0][0])    # Terminate first connection
 
-# TODO: When peer connects, establish connection as well
-# TODO: When peer terminates, remove peer from list
 def setup_server(port):
     server_socket = socket(AF_INET, SOCK_STREAM)
     server_socket.bind((myip(), port))
