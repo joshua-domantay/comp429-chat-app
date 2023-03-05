@@ -1,19 +1,20 @@
 # Simple Chat App with Python
-Programmed by Joshua Anthony Domantay and Ayush Thapaliya.
+Programmed by Joshua Anthony Domantay and Ayush Thapaliya for COMP 429 (Computer Network Software).
 
 ## Contribution made by Joshua Anthony Domantay
-1. Check if a port number is valid.
-2. Connect with a peer using their IP address and listening port number.
-3. Make sure the user cannot connect with themselves.
-4. Let the user know when the connection is successful and when another peer connected with them.
-5. Send a message to another peer using their connection id from the `list` command.
-6. Receive messages by setting a server in another thread.
-7. Print information based on what "type" of connection is made:
+1. Get user's IP address and listening port number with `myip` and `myport` commands.
+2. Check if a port number is valid.
+3. Connect with a peer using their IP address and listening port number.
+4. Make sure the user cannot connect with themselves.
+5. Let the user know when the connection is successful and when another peer connected with them.
+6. Send a message to another peer using their connection id from the `list` command.
+7. Receive messages by setting a server in another thread.
+8. Print information based on what "type" of connection is made:
     - When a peer sends message.
     - When a peer establishes a connection.
     - When a peer terminates their connection.
-8. Handle input from the user.
-9. Update README.md.
+9. Handle input from the user.
+10. Update README.md.
 
 ## Contribution made by Ayush Thapaliya
 1. Display available commands by making `help`.
@@ -24,8 +25,8 @@ Programmed by Joshua Anthony Domantay and Ayush Thapaliya.
 6. Test and make sure program is working with no errors.
 
 ## Installation
-Install the latest version of Python. The version we used for this project is 3.11.2.
-Python modules such as `sys`, `_thread`, and `socket` should be included with Python installation.
+Install the latest version of Python. The version we used for this project is 3.11.2. <br>
+Python modules such as `sys`, `_thread`, and `socket` should be included with the Python installation.
 
 ## How to Run the Program
 1. Open the terminal in the directory where chat.py is stored.
