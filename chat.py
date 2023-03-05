@@ -23,7 +23,7 @@ def help():
     print("myport - Display program port number")
     print("connect <destination> <port> - Connect to another peer")
     print("list - List every connected peer's IP address and port number")
-    print("terminate - Close a connection")
+    print("terminate <connection id> - Close a connection")
     print("send <connection id> <message> - Send message to a peer")
     print("exit - Exit the program")
 
