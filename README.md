@@ -1,5 +1,5 @@
 # Simple Chat App with Python
-Programmed by Joshua Anthony Domantay and Ayush Thapaliya for COMP 429 (Computer Network Software).<br>
+Peer-to-peer chat application. Programmed by Joshua Anthony Domantay and Ayush Thapaliya for COMP 429 (Computer Network Software).<br>
 ## Demo video
 [![Watch the video](https://img.youtube.com/vi/JhMo_5ihL9I/maxresdefault.jpg)](https://youtu.be/JhMo_5ihL9I)
 
